@@ -1,0 +1,133 @@
+apt-get install python-pip
+pip install --upgrade buildozer
+
+apt-get install python2.7-dev
+pip install --upgrade cython
+
+dpkg --add-architecture i386
+
+apt-get update
+apt-get install build-essential ccache git lib32z1 libncurses5:i386 libstdc++6:i386 python2.7 openjdk-8-jdk unzip zlib1g-dev zlib1g:i386
+or
+aor
+apt-get install -y build-essential ccache git zlib1g-dev python2.7 python2.7-dev libncurses5:i386 libstdc++6:i386 zlib1g:i386 openjdk-8-jdk unzip ant ccache autoconf libtool
+
+apt-get install python-kivy
+
+apt-get install wget
+
+wget --progress=dot:giga http://dl.google.com/android/android-sdk_r23.0.2-linux.tgz
+
+RUN wget --progress=dot:giga http://dl.google.com/android/android-sdk_r23.0.2-linux.tgz
+
+RUN mkdir /opt/android
+
+RUN tar -C /opt/android -xzvf ./android-sdk_r23.0.2-linux.tgz
+
+ENV ANDROID_HOME /opt/android/android-sdk-linux
+
+ENV PATH $ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+
+RUN chmod -R 744 $ANDROID_HOME
+
+
+
+#==========
+wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
+
+wget https://dl.google.com/android/repository/android-ndk-r15c-linux-x86_64.zip
+or
+wget https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip
+
+export ANDROIDSDK=/packages
+export ANDROIDNDK=/packages/android-ndk-r15c
+or
+export ANDROIDNDK=/packages/android-ndk-r13b
+
+export ANDROIDNDKVER=r15c
+or 
+export ANDROIDNDKVER=r13b
+
+export ANDROIDAPI=26
+or
+export ANDROIDAPI=23
+
+export PATH=$ANDROIDNDK:$ANDROIDSDK/tools:$PATH
+
+pip install python-for-android
+
+p4a apk --private $HOME/code/myapp --package=org.example.myapp --name "My application" --version 0.1 --bootstrap=sdl2 --requirements=python2,kivy
+
+
+./bin/sdkmanager  "platforms;android-26"
+./bin/sdkmanager "platforms;android-23"
+
+ ./bin/sdkmanager "build-tools;23.0.3"
+
+
+pip install cython==0.25
+
+##########kivy python3
+
+apt-get install python3-kivy
+
+# examples
+
+apt-get install python-kivy-examples
+
+apt-get install libmtdev1
+
+
+# PCL
+
+
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
+RUN apt-get update && \
+    apt-get install -y libpcl-all
+
+RUN apt-get install -y python-pip git
+RUN apt-get install -y python-dev
+RUN pip install cython
+RUN pip install numpy
+RUN pip install git+https://github.com/strawlab/python-pcl.git#egg=pcl
+
+
+#==============
+git clone https://github.com/PointCloudLibrary/pcl.git pcl-trunk
+ln -s pcl-trunk pcl
+
+sudo apt-get install cmake cmake-gui
+apt-get install doxygen
+
+======================
+
+https://larrylisky.com/2016/11/03/point-cloud-library-on-ubuntu-16-04-lts/
+
+dpkg -i PCL-1.8.0-Linux.deb
+apt-get -f install
+dpkg -i PCL-1.8.0-Linux.deb
+apt-get update
+apt-get install git build-essential linux-libc-dev
+apt-get install libusb-1.0-0-dev libusb-dev libudev-dev
+apt-get install mpi-default-dev openmpi-bin openmpi-common
+apt-get install libflann1.8 libflann-dev
+apt-get install libeigen3-dev
+apt-get install libboost-all-dev
+apt-get -y install libboost-all-dev
+apt-get -y install libqhull* libgtest-dev
+apt-get -y install freeglut3-dev pkg-config
+apt-get -y install libxmu-dev libxi-dev 
+apt-get -y install mono-complete
+apt-get -y install qt-sdk openjdk-8-jdk openjdk-8-jre
+git clone https://github.com/PointCloudLibrary/pcl.git
+
+cd pcl
+mkdir release
+cd release
+cmake -DCMAKE_BUILD_TYPE=None -DCMAKE_INSTALL_PREFIX=/usr \
+           -DBUILD_GPU=ON -DBUILD_apps=ON -DBUILD_examples=ON \
+           -DCMAKE_INSTALL_PREFIX=/usr ..
+make
+make install
+
