@@ -26,6 +26,9 @@ RUN apt-get -y install python2.7-dev python3.5-dev
 #================================================
 
 
+#========== Installing Dlib Prerequisite==========
+RUN apt-get -y install libboost-all-dev
+#=================================================
 
 # Additional step needed to avoid the permission denied error
 RUN rm -rf ~/.cache/pip/
@@ -73,7 +76,16 @@ RUN python -m pip install ipykernel
 
 RUN python -m ipykernel install --user
 
+
+# Installing Dlib
+RUN pip3 install scipy
+RUN pip3 install scikit-image
+RUN pip3 install dlib
+
 COPY jupyter_notebook_config.py /root/.jupyter/
+
+# setting my tmux - terminal multiplexer
+RUN apt-get -y install tmux
 
 # Setting up the work directory
 RUN mkdir /src
