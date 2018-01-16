@@ -1,0 +1,6 @@
+goldengate/goldengate-00.png
+goldengate/goldengate-01.png
+goldengate/goldengate-02.png
+goldengate/goldengate-03.png
+goldengate/goldengate-04.png
+goldengate/goldengate-05.png
